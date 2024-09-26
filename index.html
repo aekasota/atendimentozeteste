@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você me ama?</title>
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            color: #ff4081;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        #bearGif, #finalGif {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #sim {
+            background-color: #ff4081;
+            color: white;
+        }
+
+        #nao {
+            background-color: #ff91c1;
+            color: white;
+            position: absolute;
+        }
+
+        #finalGif {
+            display: none;
+        }
+
+        @keyframes moveButton {
+            0% { left: 0; top: 0; }
+            100% { left: 0; top: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="questionText">voce me ama?</h1>
+
+    <img id="bearGif" src="1.gif" alt="Cute Bear">
+
+    <button id="sim" class="button">Sim</button>
+    <button id="nao" class="button">Não</button>
+
+    <img id="finalGif" src="2.gif" alt="Dina e Sami se abraçando">
+
+    <script>
+        const naoButton = document.getElementById('nao');
+        const simButton = document.getElementById('sim');
+        const bearGif = document.getElementById('bearGif');
+        const finalGif = document.getElementById('finalGif');
+        const questionText = document.getElementById('questionText');
+
+        naoButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - naoButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - naoButton.offsetHeight);
+            
+            naoButton.style.left = `${x}px`;
+            naoButton.style.top = `${y}px`;
+        });
+
+        simButton.addEventListener('click', () => {
+            questionText.textContent = "também te amo meu amor";
+
+            bearGif.style.display = 'none';
+            finalGif.style.display = 'block';
+
+            simButton.style.display = 'none';
+            naoButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
