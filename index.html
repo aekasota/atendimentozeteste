@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Atendimento</title>
-  <!-- Fonte Nunito -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Overlay de Autenticação: não exibe nada até a senha ser validada -->
   <div id="authOverlay" class="auth-overlay">
     <div class="auth-container animated">
       <h2>Acesso Restrito</h2>
@@ -27,12 +25,9 @@
     <button id="toggleMode" class="mode-toggle">🌙</button>
   </header>
 
-  <!-- Barra de abas -->
   <div id="tabsContainer" class="tabs-container"></div>
 
-  <!-- Área principal de conteúdo -->
   <div id="contentContainer" class="content-container">
-    <!-- Tela de Boas-Vindas (ficará invisível enquanto o overlay está ativo) -->
     <div id="welcomePage" class="card welcome-page animated">
       <h2>Bem-vindo! :)</h2>
       <p>Clique no botão abaixo para começar.</p>
@@ -40,14 +35,10 @@
     </div>
   </div>
 
-  <!-- Mensagem fixa de teste -->
   <div id="testMessage" class="test-message">Apenas em teste.</div>
   <div id="testMessage1" class="test-message1">by: hyak.</div>
 
   <script>
-    /*******************************
-     * PROTEÇÃO POR SENHA
-     *******************************/
     document.addEventListener("DOMContentLoaded", function(){
       document.getElementById("authForm").addEventListener("submit", function(e){
         e.preventDefault();
@@ -74,11 +65,6 @@
     function initSite(){
       showWelcomePage();
     }
-    
-    /*******************************
-     * CÓDIGO DO SITE
-     *******************************/
-    
     function toggleTheme(){
       document.body.classList.toggle("dark-mode");
       document.getElementById("toggleMode").innerText =
@@ -187,10 +173,6 @@
       }
     }
     
-    /**************************************************
-     * FLUXO DA OPERATIVA / TRATATIVA – COMPLETO E ANIMADO
-     **************************************************/
-    
     function loadOperativeFlow(ticketId){
       const ticketDiv = document.getElementById(ticketId);
       ticketDiv.innerHTML = `
@@ -280,7 +262,6 @@
       container.appendChild(finalDiv);
     }
     
-    // Fluxo exclusivo para a tratativa "Meus produtos vieram vencidos" com conteúdo completo
     function startOperativeStepsVencidos(container, ticketId){
       let localStep = 0;
       const vencidosSteps = [
